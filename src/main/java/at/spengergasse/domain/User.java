@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 @Table(name ="User")
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class User {
+public class User extends BaseDomain<User>{
 
     @NotNull
     @NonNull
@@ -36,4 +36,9 @@ public class User {
     //Minimum eight characters, at least one uppercase letter, one lowercase letter and one number
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")
     private String password;
+
+    @Override
+    public int compareTo(User o) {
+        return getUsername().compareTo(o.getUsername());
+    }
 }
