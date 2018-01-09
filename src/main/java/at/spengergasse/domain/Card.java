@@ -17,6 +17,8 @@ import java.util.List;
 @Table(name = "Card")
 @NoArgsConstructor
 @RequiredArgsConstructor
+
+//This is the class for our CueCards filled with lists of wrong and right answers
 public class Card extends BaseDomain<Card>{
 
     @NonNull
