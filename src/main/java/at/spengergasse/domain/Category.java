@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Category")
 @NoArgsConstructor
 @RequiredArgsConstructor
+
+//This is our class for the Category with a Table filled with subjects(zb. Geschichte, Deutsch, Geografie,..)
 public class Category extends BaseDomain<Category>{
 
     @NonNull
