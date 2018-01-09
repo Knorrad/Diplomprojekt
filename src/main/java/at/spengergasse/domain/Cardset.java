@@ -18,6 +18,9 @@ import java.util.List;
 @Table(name = "Cardset")
 @NoArgsConstructor
 @RequiredArgsConstructor
+
+//This is the class for our Cardsets for subjects (zb. Geschichte, Deutsch, Geografie,..) with a list filled with cards
+//The difference between Category and Cardset is that Category is a Table filled with subject and Cardset is a set of Cards of an specific subject
 public class Cardset extends BaseDomain<Cardset> {
 
     @NonNull
