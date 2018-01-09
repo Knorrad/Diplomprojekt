@@ -12,15 +12,15 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-/**
- * Created by Knorrad on 09.01.2018.
- */
+
 
 @Data
 @Entity
 @Table(name ="User")
 @NoArgsConstructor
 @RequiredArgsConstructor
+
+//Obviously the User class is here in order to form a account system (login)
 public class User extends BaseDomain<User>{
 
     @NotNull
