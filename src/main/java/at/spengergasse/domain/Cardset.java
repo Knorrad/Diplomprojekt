@@ -47,6 +47,12 @@ public class Cardset extends BaseDomain<Cardset> {
     List<Card> cardList = new ArrayList<>();
 
 
+    //This list is there in order to share cardlists between users, cant come up with a convenient name for it lol
+    @NonNull
+    @NotNull
+    @Column (name ="sharedUserlist")
+    List<User> sharedUserlist = new ArrayList<>();
+
 
 
 
