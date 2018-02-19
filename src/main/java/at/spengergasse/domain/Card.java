@@ -5,9 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +24,13 @@ public class Card extends BaseDomain<Card>{
     @Column(name = "question")
     private String question;
 
-
+    @ElementCollection
     @NonNull
     @NotNull
     @Column(name = "correctAnswers")
     List<String> correctAnswers = new ArrayList<>();
 
-
+    @ElementCollection
     @NonNull
     @NotNull
     @Column(name = "wrongAnswers")
