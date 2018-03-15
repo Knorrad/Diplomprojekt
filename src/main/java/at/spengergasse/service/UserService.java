@@ -1,6 +1,7 @@
 package at.spengergasse.service;
 
 
+import at.spengergasse.domain.User;
 import at.spengergasse.persistance.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +17,17 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return userRepository.findByUsername(s);
+        UserDetails user = userRepository.findByUsername(s);
+        if (user == null){
+            throw new UsernameNotFoundException("Falsche Anmeldeinformationen");
+        }
+        return user;
     }
 
+
+    public User saveUser(User user){
+        userRepository.save(user);
+        return user;
+    }
 
 }

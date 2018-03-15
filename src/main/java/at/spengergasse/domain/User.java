@@ -36,8 +36,24 @@ public class User extends BaseDomain<User> implements UserDetails{
     @NonNull
     @Column(name = "password")
     //Minimum eight characters, at least one uppercase letter, one lowercase letter and one number
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")
+   // @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")
     private String password;
+
+
+    @NotNull
+    @NonNull
+    @Column(name = "firstname")
+    private String firstname;
+
+    @NotNull
+    @NonNull
+    @Column(name = "lastname")
+    private String lastname;
+
+    @NotNull
+    @NonNull
+    @Column(unique = true,name = "email")
+    private String email;
 
     @Override
     public int compareTo(User o) {

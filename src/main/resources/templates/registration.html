@@ -1,0 +1,76 @@
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta th:replace="fragments/header :: head"/>
+</head>
+<body>
+
+<div class="container-fluid tac fw300">
+
+    <div class="logo-box">
+    </div>
+    <!--/*@thymesVar id="regform" type="at.spengergasse.domain.form.RegistrationForm"*/-->
+    <form th:action="@{/registration}" th:object="${regform}" method="post" onsubmit="return validateForm();">
+        <div class="col-sm-8 offset-sm-2">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-12 mb15">
+                    <input th:field="*{username}" id="username" type="text" class="form-control primary" placeholder="Benutzername"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-12 mb15">
+                    <input th:field="*{firstname}" id="firstname" type="text" class="form-control" placeholder="Vorname"/>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-12 mb15">
+                    <input th:field="*{lastname}" id="lastname" type="text" class="form-control" placeholder="Nachname"/>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-12 mb15">
+                    <input th:field="*{password}" id="password" type="password" class="form-control" placeholder="Passwort"/>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-12 mb15">
+                    <input type="password" id="passwordc" class="form-control" placeholder="Passwort bestätigen"/>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-12 mb15">
+                    <input th:field="*{email}" id="email" type="text" class="form-control" placeholder="E-mail"/>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-12 mb15">
+                    <input type="text" id="emailc" class="form-control" placeholder="E-mail bestätigen"/>
+                </div>
+            </div>
+
+
+            <div class="form-row text-center">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-reg btn-block" style="">Registrieren</button>
+                </div>
+            </div>
+
+            <div class="alert alert-danger" th:if="${emailerror}" style="font-size: 15px">Email invalid</div>
+            <div class="alert alert-danger" th:if="${passworderror}" style="font-size: 15px">Password invalid</div>
+            <div class="alert alert-danger" th:if="${lastnameerror}" style="font-size: 15px">Last name invalid</div>
+            <div class="alert alert-danger" th:if="${firstnameerror}" style="font-size: 15px">First name invalid</div>
+
+
+
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

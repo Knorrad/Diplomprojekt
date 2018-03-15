@@ -20,11 +20,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/assets/**", "/js/**", "/fonts/**", "/img/**", "/favicon.ico", "/registration").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-                .formLogin()
-                .permitAll()
+                .formLogin().loginPage("/login").failureUrl("/login-error").permitAll()
+                .defaultSuccessUrl("/")
                 .and()
                 .logout()
                 .logoutUrl("/logout");

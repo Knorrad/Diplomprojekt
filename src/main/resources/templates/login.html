@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta th:replace="fragments/header :: head"/>
+</head>
+<body>
+<div id="403" class="page">
+    <div class="container-fluid tac fw300" style="font-size: 50px; text-align: center">
+        <!--/*@thymesVar id="loginForm" type="at.spengergasse.domain.form.LoginForm"*/-->
+        <form th:action="@{/login}" th:object="${loginForm}" method="post">
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 mb15">
+                    <p class="input-title">Benutzername</p>
+                    <input th:field="*{username}" id="email" type="text" class="form-control" placeholder="Benutzername" autofocus="autofocus"
+                           onfocus="this.select()"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 mb15">
+                    <p class="input-title">Passwort</p>
+                    <input th:field="*{password}" id="password" type="password" class="form-control" placeholder="Passwort"/>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 offset-sm-3 col-md-4 offset-md-4">
+               <button type="submit" class="btn btn-primary btn-reg btn-block">Login</button>
+            </div>
+        </form>
+
+        <form th:action="@{/registration}" method="get">
+            <div class="col-12 col-sm-6 offset-sm-3 col-md-4 offset-md-4">
+                <button type="submit" class="btn btn-primary fw300 btn-block" style="font-size: 14px;">Registrieren</button>
+        </div>
+        </form>
+        <div class="alert alert-danger" th:if="${error}" style="font-size: 30px">Falsche
+            Anmeldeinformationen
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
